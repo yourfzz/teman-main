@@ -6,7 +6,10 @@ export type Category =
   | 'absurd'
   | 'kenalan'
   | 'percintaan'
-  | 'nostalgia';
+  | 'nostalgia'
+  | 'ice-breaker'
+  | 'relationship'
+  | 'hot-takes';
 
 export type WouldYouRatherCategory = 
   | 'absurd'
@@ -23,6 +26,8 @@ export interface Question {
   id: string;
   text: string;
   category: Category;
+  followUps?: string[];
+  special?: boolean;
 }
 
 export interface TruthOrDareItem {

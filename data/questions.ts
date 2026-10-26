@@ -554,7 +554,7 @@ export const questions: Question[] = [
   },
   {
     id: "n9",
-    text: "Kapan momen pertama kamu ngerasa, 'Wah, gue udah beneran jadi orang dewasa nih'?",
+    text: "Kapan momen pertama kamu ngerasa, 'Wah, aku udah beneran jadi orang dewasa nih'?",
     category: "nostalgia",
   },
   {
@@ -612,16 +612,45 @@ export const questions: Question[] = [
     text: "Nasihat klise dari orang tua tentang dunia kerja/kuliah yang dulu kamu remehin, tapi ternyata bener banget?",
     category: "nostalgia",
   },
+  {
+    id: "h1",
+    text: "Hot take: nongkrong tanpa rencana justru sering jadi yang paling seru. Setuju atau tidak?",
+    category: "hot-takes",
+    special: true,
+  },
+  {
+    id: "h2",
+    text: "Hot take: balas chat singkat belum tentu berarti kamu sedang cuek. Menurutmu gimana?",
+    category: "hot-takes",
+  },
+  {
+    id: "h3",
+    text: "Hot take: teman yang berani bilang tidak kadang justru paling bisa dipercaya. Setuju?",
+    category: "hot-takes",
+  },
+  {
+    id: "h4",
+    text: "Hot take: makanan terakhir di meja seharusnya boleh diambil tanpa drama. Setuju atau tidak?",
+    category: "hot-takes",
+  },
+  {
+    id: "h5",
+    text: "Hot take: punya banyak teman belum tentu membuat kamu punya tempat cerita. Pernah merasa begitu?",
+    category: "hot-takes",
+  },
 ];
 
 export const getCategoryLabel = (category: string): string => {
   const labels: Record<string, string> = {
     random: "Random",
+    "ice-breaker": "Ice Breaker",
     "deep-talk": "Deep Talk",
     absurd: "Absurd",
-    kenalan: "Kenalan",
-    percintaan: "Percintaan",
+    kenalan: "Ice Breaker",
+    relationship: "Relationship",
+    percintaan: "Relationship",
     nostalgia: "Nostalgia",
+    "hot-takes": "Hot Takes",
   };
 
   return labels[category] || category;

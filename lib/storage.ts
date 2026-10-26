@@ -35,7 +35,10 @@ export function getFavorites(gameType: string): string[] {
   try {
     const key = `teman-main-favorites-${gameType}`;
     const stored = localStorage.getItem(key);
-    return stored ? JSON.parse(stored) : [];
+    const parsed: unknown = stored ? JSON.parse(stored) : [];
+    return Array.isArray(parsed) && parsed.every((item): item is string => typeof item === 'string')
+      ? parsed
+      : [];
   } catch (error) {
     console.error('Failed to get favorites:', error);
     return [];
