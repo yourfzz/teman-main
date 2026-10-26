@@ -17,6 +17,7 @@ export default function SiPalingPage() {
   const [order, setOrder] = useState<string[]>([]);
   const [toast, setToast] = useState<string | null>(null);
   const [started, setStarted] = useState(false);
+  const [selectedPlayer, setSelectedPlayer] = useState<string | null>(null);
 
   const current = siPalingStatements[0] && order.length 
     ? siPalingStatements.find(s => s.id === order[index]) || siPalingStatements[0] 
@@ -37,11 +38,15 @@ export default function SiPalingPage() {
     const result = getNextItem(siPalingStatements, index, order);
     setIndex(result.newIndex);
     if (result.newOrder) setOrder(result.newOrder);
+    setSelectedPlayer(null);
   };
 
   const handleShare = async () => {
     if (!current) return;
-    const text = generateShareText(current.text, 'Si Paling');
+    const text = generateShareText(
+      `${current.text}${selectedPlayer ? `\n\nJawaban: ${selectedPlayer}` : ''}`,
+      'Si Paling'
+    );
     if (await shareContent(text)) setToast('Berhasil disalin!');
   };
 
@@ -114,7 +119,23 @@ export default function SiPalingPage() {
                   👥 SI PALING
                 </div>
                 <p className="text-3xl md:text-4xl font-black leading-relaxed mb-8">{current.text}</p>
-                <p className="text-black/60 mb-8">Diskusikan bersama dan pilih siapa orangnya!</p>
+                <p className="text-black/60 mb-4">Diskusikan bersama dan pilih siapa orangnya!</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
+                  {players.map((name, idx) => (
+                    <button
+                      key={`${name}-${idx}`}
+                      type="button"
+                      aria-pressed={selectedPlayer === name}
+                      onClick={() => setSelectedPlayer(name)}
+                      className={`px-3 py-3 rounded-xl font-bold border-2 border-black transition-colors ${selectedPlayer === name ? 'bg-[#c1ff72]' : 'bg-white hover:bg-black/5'}`}
+                    >
+                      {name}
+                    </button>
+                  ))}
+                </div>
+                {selectedPlayer && (
+                  <p className="font-bold mb-8">{selectedPlayer} paling mungkin!</p>
+                )}
               </motion.div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button onClick={handleNext} size="lg" className="flex items-center gap-2">
@@ -124,7 +145,7 @@ export default function SiPalingPage() {
                   <Share2 className="w-5 h-5" />Bagikan
                 </Button>
               </div>
-              <button onClick={() => setStarted(false)} className="mt-6 text-sm text-black/60 hover:text-black">
+              <button onClick={() => { setSelectedPlayer(null); setStarted(false); }} className="mt-6 text-sm text-black/60 hover:text-black">
                 Ganti pemain
               </button>
             </div>
