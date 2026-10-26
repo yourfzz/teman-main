@@ -24,40 +24,40 @@ export default function GameCard({
 }: GameCardProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.02, y: -4 }}
+      whileHover={{ scale: 1.025, y: -6, rotate: title.length % 2 ? -0.4 : 0.4 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
       <Link 
         href={href}
-        className="block"
+        className="block h-full"
       >
         <div 
-          className="p-6 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all h-full"
+          className="group relative h-full overflow-hidden rounded-[1.75rem] border-2 border-[#172033] p-6 shadow-[5px_5px_0_#172033] transition-all md:p-7"
           style={{ backgroundColor: color }}
         >
           <div className="flex items-start justify-between mb-4">
-            <div className="p-3 bg-white/90 rounded-xl border-2 border-black">
+            <div className="rounded-2xl border-2 border-[#172033] bg-white/90 p-3 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
               {icon}
             </div>
             {duration && (
-              <span className="text-xs font-medium bg-black text-white px-2 py-1 rounded-full">
+              <span className="rounded-full bg-[#172033] px-3 py-1.5 text-xs font-bold text-white">
                 {duration}
               </span>
             )}
           </div>
           
-          <h3 className="text-2xl font-bold mb-2 text-black">
+          <h3 className="mb-2 text-2xl font-black tracking-tight text-[#172033]">
             {title}
           </h3>
           
-          <p className="text-sm text-black/80 mb-4 leading-relaxed">
+          <p className="mb-5 text-sm leading-relaxed text-[#172033]/75">
             {description}
           </p>
           
-          <div className="flex items-center gap-2 text-sm font-bold text-black">
+          <div className="flex items-center gap-2 text-sm font-black text-[#172033]">
             Mulai main
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
       </Link>

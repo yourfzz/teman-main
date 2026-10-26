@@ -1,99 +1,108 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2026);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+  const currentYear = 2026;
 
   return (
-    <footer className="mt-16 border-t-2 border-black/10 bg-white">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="relative mt-1 overflow-hidden border-t-2 border-[#172033] bg-[#172033] text-[#fff8f0]">
+      <div className="pointer-events-none absolute -right-12 -top-16 h-40 w-40 rounded-full border-[18px] border-[#ff7a59]/70" />
+      <div className="pointer-events-none absolute bottom-8 left-[42%] h-4 w-4 rotate-45 bg-[#ffd166]" />
+      <div className="relative mx-auto max-w-6xl px-4 py-12 md:py-14">
+        <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-[#c1ff72] rounded-full border-2 border-black flex items-center justify-center">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border-2 border-[#fff8f0] bg-[#ffd166] text-[#172033] shadow-[3px_3px_0_#ff7a59]">
                 <span className="text-xl font-black">T</span>
               </div>
-              <span className="text-xl font-black">TEMAN MAIN</span>
+              <span className="text-xl font-black tracking-[-0.05em]">
+                TEMAN<span className="text-[#ff7a59]">.</span>MAIN
+              </span>
             </div>
-            <p className="text-sm text-black/70 leading-relaxed">
+            <p className="max-w-sm text-sm leading-relaxed text-[#fff8f0]/65">
               Bikin nongkrong lebih seru, satu permainan dalam sekali klik.
               Nggak perlu download, nggak perlu login, langsung gas aja.
             </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#fff8f0]/20 bg-[#fff8f0]/10 px-3 py-2 text-xs font-bold text-[#ffd166]">
+              <Sparkles className="h-3.5 w-3.5" /> Dibuat untuk momen spontan
+            </div>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-bold mb-4">Permainan</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#5dd9d0]">
+              Permainan
+            </h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a
+                <Link
                   href="/main/pertanyaan"
-                  className="text-black/70 hover:text-[#c1ff72] transition-colors"
+                  className="group inline-flex items-center gap-1 text-[#fff8f0]/65 transition-colors hover:text-[#ffd166]"
                 >
-                  Pertanyaan Random
-                </a>
+                  Pertanyaan Random{" "}
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/main/truth-or-dare"
-                  className="text-black/70 hover:text-[#a78bfa] transition-colors"
+                  className="group inline-flex items-center gap-1 text-[#fff8f0]/65 transition-colors hover:text-[#9b8cff]"
                 >
-                  Truth or Dare
-                </a>
+                  Truth or Dare{" "}
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/main/would-you-rather"
-                  className="text-black/70 hover:text-[#60a5fa] transition-colors"
+                  className="group inline-flex items-center gap-1 text-[#fff8f0]/65 transition-colors hover:text-[#5dd9d0]"
                 >
-                  Would You Rather
-                </a>
+                  Would You Rather{" "}
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/main/si-paling"
-                  className="text-black/70 hover:text-[#fb923c] transition-colors"
+                  className="group inline-flex items-center gap-1 text-[#fff8f0]/65 transition-colors hover:text-[#ff7a59]"
                 >
-                  Si Paling
-                </a>
+                  Si Paling{" "}
+                  <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Info */}
           <div>
-            <h3 className="font-bold mb-4">Info</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-[#ff7a59]">
+              Info
+            </h3>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a
+                <Link
                   href="/tentang"
-                  className="text-black/70 hover:text-black transition-colors"
+                  className="text-[#fff8f0]/65 transition-colors hover:text-[#fff8f0]"
                 >
                   Tentang Kami
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#games"
-                  className="text-black/70 hover:text-black transition-colors"
+                  className="text-[#fff8f0]/65 transition-colors hover:text-[#fff8f0]"
                 >
                   Cara Main
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-black/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-black/60">
+        <div className="border-t border-[#fff8f0]/15 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-sm text-[#fff8f0]/50 md:flex-row">
             <p className="order-2 text-center md:order-1 md:text-left">
               © {currentYear} TEMAN MAIN. Semua hak cipta dilindungi
               undang-undang (yang penting udah dikasih tau).
@@ -106,11 +115,11 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="font-bold text-black">Hafidz</span>
+                <span className="font-bold text-[#ffd166]">Hafidz</span>
               </Link>
               <br />
               <span className="text-xs italic">
-                "Karena scrolling terus juga nggak produktif, kan?"
+                &quot;Karena scrolling terus juga nggak produktif, kan?&quot;
               </span>
             </p>
           </div>

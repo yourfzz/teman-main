@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #fef9f3;
-  --black: #0a0a0a;
-  --lime: #c1ff72;
-  --purple: #a78bfa;
-  --orange: #fb923c;
-  --blue: #60a5fa;
+  --cream: #fff8f0;
+  --black: #172033;
+  --lime: #ffd166;
+  --purple: #9b8cff;
+  --orange: #ff7a59;
+  --blue: #5dd9d0;
+  --ink-soft: rgba(23, 32, 51, 0.68);
 }
 
 @theme inline {
@@ -29,11 +30,45 @@ html {
 }
 
 body {
-  background: var(--cream);
+  background-color: var(--cream);
+  background-image: radial-gradient(rgba(23, 32, 51, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
   color: var(--black);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--black);
+}
+
+:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+.animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+.tactile-shadow {
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.tactile-shadow:hover {
+  box-shadow: 8px 8px 0 var(--black);
 }
 
 @media (prefers-reduced-motion: reduce) {

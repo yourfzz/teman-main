@@ -16,12 +16,12 @@ export default function Button({
   disabled,
   ...props 
 }: ButtonProps) {
-  const baseClasses = 'font-bold rounded-full transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'font-bold rounded-full transition-all duration-200 active:scale-95 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
   
   const variantClasses = {
-    primary: 'bg-[#c1ff72] text-black hover:bg-[#b0ef61] border-2 border-black',
-    secondary: 'bg-[#a78bfa] text-white hover:bg-[#9777ea] border-2 border-black',
-    outline: 'bg-transparent text-black hover:bg-black/5 border-2 border-black',
+    primary: 'bg-[#ff7a59] text-white hover:bg-[#ff9278] border-2 border-[#172033] shadow-[3px_3px_0_#172033] hover:shadow-[5px_5px_0_#172033] active:shadow-none',
+    secondary: 'bg-[#9b8cff] text-white hover:bg-[#aaa0ff] border-2 border-[#172033] shadow-[3px_3px_0_#172033] hover:shadow-[5px_5px_0_#172033] active:shadow-none',
+    outline: 'bg-white text-[#172033] hover:bg-[#5dd9d0]/25 border-2 border-[#172033] shadow-[3px_3px_0_#172033] hover:shadow-[5px_5px_0_#172033] active:shadow-none',
   };
   
   const sizeClasses = {

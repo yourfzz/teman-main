@@ -3,68 +3,70 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import GameCard from '@/components/ui/GameCard';
-import { MessageCircle, Zap, Scale, Users } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, MessageCircle, Scale, Sparkles, Users, Zap } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative px-4 py-12 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-[#c1ff72]/30 via-[#fef9f3] to-[#a78bfa]/20">
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#fff8f0_0%,#fff8f0_45%,#e8e4ff_100%)] px-4 py-12 md:py-20 lg:py-24">
         {/* Decorative Floating Shapes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
-            className="absolute top-20 left-[5%] w-16 h-16 md:w-24 md:h-24 bg-[#c1ff72] rounded-full border-2 border-black opacity-60"
+            className="absolute left-[-2rem] top-24 h-24 w-24 rounded-full border-2 border-[#172033] bg-[#ffd166]/70 blur-[1px] md:left-[5%] md:h-32 md:w-32"
           />
           <motion.div
             animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
             transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-            className="absolute top-40 right-[10%] w-12 h-12 md:w-20 md:h-20 bg-[#fb923c] rounded-full border-2 border-black opacity-50"
+            className="absolute right-[5%] top-20 h-16 w-16 rotate-12 rounded-3xl border-2 border-[#172033] bg-[#ff7a59]/75 md:h-24 md:w-24"
           />
           <motion.div
             animate={{ y: [0, -15, 0], rotate: [0, 15, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-            className="absolute bottom-32 left-[15%] w-14 h-14 md:w-20 md:h-20 bg-[#a78bfa] rotate-45 border-2 border-black opacity-40"
+            className="absolute bottom-20 left-[15%] hidden h-16 w-16 rotate-45 border-2 border-[#172033] bg-[#9b8cff]/60 md:block"
           />
           <motion.div
             animate={{ y: [0, 25, 0], rotate: [0, -15, 0] }}
             transition={{ duration: 7, repeat: Infinity, delay: 2 }}
-            className="absolute top-1/2 right-[5%] w-10 h-10 md:w-16 md:h-16 bg-[#60a5fa] rotate-12 border-2 border-black opacity-50"
+            className="absolute right-[3%] top-1/2 h-12 w-12 rotate-12 rounded-full border-2 border-[#172033] bg-[#5dd9d0]/70 md:h-16 md:w-16"
           />
           
           {/* Pattern dots */}
           <div className="absolute top-10 right-[20%] hidden md:grid grid-cols-3 gap-2 opacity-20">
             {[...Array(9)].map((_, i) => (
-              <div key={i} className="w-2 h-2 bg-black rounded-full" />
+              <div key={i} className="h-2 w-2 rounded-full bg-[#172033]" />
             ))}
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div 
+        <div className="relative z-10 mx-auto max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 md:mb-12"
+            className="text-center lg:text-left"
           >
             {/* Badge */}
             <motion.div 
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring" }}
-              className="inline-block mb-6 md:mb-8"
+              className="mb-6 inline-block md:mb-8"
             >
-              <div className="px-4 md:px-6 py-2 md:py-3 bg-white rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="text-xs md:text-sm font-bold">✨ Biar Nongkrong Nggak Cuma Scrolling</span>
+              <div className="inline-flex items-center gap-2 rounded-full border-2 border-[#172033] bg-white px-4 py-2 shadow-[4px_4px_0_#172033] transition-transform hover:rotate-[-2deg] md:px-5 md:py-3">
+                <Sparkles className="h-4 w-4 text-[#ff7a59]" />
+                <span className="text-xs font-black uppercase tracking-[0.08em] md:text-sm">Biar nongkrong nggak cuma scrolling</span>
               </div>
             </motion.div>
 
             {/* Main heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight px-2">
-              NONGKRONG JANGAN<br />
-              <span className="inline-block bg-[#c1ff72] px-3 md:px-4 py-1 md:py-2 -rotate-1 border-2 border-black my-2">
-                CUMA SCROLLING
+            <h1 className="mb-5 px-2 text-5xl font-black leading-[0.92] tracking-[-0.07em] sm:text-6xl md:text-7xl lg:px-0 lg:text-[5.8rem]">
+              NONGKRONG<br />
+              <span className="relative inline-block -rotate-2 bg-[#ffd166] px-3 py-2 text-[#172033] md:px-5">
+                JANGAN SCROLLING
               </span>
             </h1>
 
@@ -72,7 +74,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl text-black/70 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed px-4"
+              className="mx-auto mb-8 max-w-xl px-4 text-base leading-relaxed text-[#172033]/70 sm:text-lg md:px-0 md:text-xl lg:mx-0"
             >
               Udah ngumpul, tapi semuanya sibuk sama HP masing-masing? 
               Saatnya punya cerita baru yang bisa diketawain bareng.
@@ -82,29 +84,62 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4"
+              className="flex flex-col items-center justify-center gap-3 px-4 sm:flex-row lg:justify-start lg:px-0"
             >
               <Link 
                 href="#games"
-                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#c1ff72] rounded-full font-bold text-base md:text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] transition-all text-center"
+                className="group flex w-full items-center justify-center gap-2 rounded-full border-2 border-[#172033] bg-[#ff7a59] px-6 py-3 text-center text-base font-black text-white shadow-[4px_4px_0_#172033] transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0_#172033] active:translate-y-0 active:shadow-none sm:w-auto md:px-8 md:py-4 md:text-lg"
               >
-                🎮 AYO MAIN!
+                🎮 AYO MAIN! <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link 
                 href="/tentang"
-                className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white rounded-full font-bold text-base md:text-lg border-2 border-black hover:bg-black/5 transition-all text-center"
+                className="w-full rounded-full border-2 border-[#172033] bg-white px-6 py-3 text-center text-base font-black shadow-[3px_3px_0_#172033] transition-all hover:-translate-y-1 hover:bg-[#5dd9d0]/25 active:translate-y-0 active:shadow-none sm:w-auto md:px-8 md:py-4 md:text-lg"
               >
                 TENTANG KAMI
               </Link>
             </motion.div>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, rotate: 2 }}
+            animate={{ opacity: 1, scale: 1, rotate: -2 }}
+            transition={{ delay: 0.25, type: 'spring', stiffness: 120 }}
+            className="relative mx-auto w-full max-w-md lg:mx-0 lg:ml-auto"
+          >
+            <div className="absolute -right-3 -top-4 z-20 rounded-full border-2 border-[#172033] bg-[#5dd9d0] px-4 py-2 text-xs font-black uppercase tracking-[0.1em] shadow-[3px_3px_0_#172033] md:-right-6">
+              pilih mood kamu
+            </div>
+            <div className="relative overflow-hidden rounded-[2rem] border-2 border-[#172033] bg-[#172033] p-3 shadow-[10px_10px_0_#ff7a59]">
+              <div className="rounded-[1.35rem] border-2 border-[#fff8f0]/20 bg-[#fff8f0] p-5 md:p-7">
+                <div className="mb-10 flex items-center justify-between text-xs font-black uppercase tracking-[0.16em] text-[#172033]/50">
+                  <span>teman main / 001</span>
+                  <span className="flex items-center gap-1 text-[#ff7a59]"><Sparkles className="h-3.5 w-3.5" /> live</span>
+                </div>
+                <div className="mb-5 inline-flex rounded-full border-2 border-[#172033] bg-[#9b8cff] px-3 py-1.5 text-xs font-black uppercase text-white shadow-[3px_3px_0_#172033]">
+                  pertanyaan random
+                </div>
+                <p className="text-2xl font-black leading-tight tracking-[-0.04em] text-[#172033] md:text-3xl">
+                  “Hal kecil apa yang akhir-akhir ini bikin kamu senyum?”
+                </p>
+                <div className="mt-8 flex items-center justify-between border-t-2 border-[#172033]/10 pt-4 text-xs font-bold text-[#172033]/50">
+                  <span>nggak ada jawaban salah</span>
+                  <ArrowDownRight className="h-5 w-5 text-[#ff7a59]" />
+                </div>
+              </div>
+            </div>
+            <div className="absolute -bottom-5 -left-5 rotate-[-8deg] rounded-2xl border-2 border-[#172033] bg-[#ffd166] px-4 py-3 text-sm font-black shadow-[4px_4px_0_#172033]">
+              0% awkward silence
+            </div>
+          </motion.div>
+          </div>
+
           {/* Stats */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-4xl mx-auto mt-12 md:mt-16 px-2"
+            className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-3 px-2 md:mt-20 md:grid-cols-4 md:gap-5"
           >
             {[
               { number: '4', label: 'Permainan', icon: '🎯' },
@@ -117,11 +152,11 @@ export default function Home() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.8 + i * 0.1, type: "spring" }}
-                className="p-3 md:p-6 bg-white rounded-xl md:rounded-2xl border-2 border-black text-center hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] transition-all"
+                className="rounded-2xl border-2 border-[#172033] bg-white p-3 text-center shadow-[3px_3px_0_#172033] transition-all hover:-translate-y-1 hover:shadow-[5px_5px_0_#172033] md:p-5"
               >
-                <div className="text-xl md:text-3xl mb-1 md:mb-2">{stat.icon}</div>
-                <div className="text-xl md:text-3xl font-black mb-1">{stat.number}</div>
-                <div className="text-xs md:text-sm text-black/60 font-medium">{stat.label}</div>
+                <div className="mb-1 text-xl md:mb-2 md:text-3xl">{stat.icon}</div>
+                <div className="mb-1 text-xl font-black md:text-3xl">{stat.number}</div>
+                <div className="text-xs font-bold text-[#172033]/60 md:text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -129,29 +164,32 @@ export default function Home() {
       </section>
 
       {/* Games Section */}
-      <section id="games" className="px-4 py-12 md:py-16 bg-white/50">
-        <div className="max-w-6xl mx-auto">
+      <section id="games" className="border-t-2 border-[#172033]/10 bg-[#fff8f0] px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-12"
+            className="mb-10 text-center md:mb-14"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 md:mb-4">
-              Pilih Permainanmu
+            <div className="mb-4 inline-flex rounded-full border-2 border-[#172033] bg-[#5dd9d0] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] shadow-[3px_3px_0_#172033]">
+              4 cara buat mulai ngobrol
+            </div>
+            <h2 className="mb-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl md:text-6xl">
+              Pilih permainanmu<span className="text-[#ff7a59]">.</span>
             </h2>
-            <p className="text-sm md:text-base text-black/70 px-4">
+            <p className="px-4 text-sm leading-relaxed text-[#172033]/65 md:text-base">
               Empat cara seru buat bikin nongkrong lebih hidup
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
             <GameCard
               title="Pertanyaan Random"
               description="Biar obrolan nggak muter di kerjaan, kuliah, sama mantan."
               icon={<MessageCircle className="w-5 h-5 md:w-6 md:h-6" />}
               href="/main/pertanyaan"
-              color="#c1ff72"
+              color="#ffd166"
               duration="5-15 menit"
             />
             
@@ -160,7 +198,7 @@ export default function Home() {
               description="Jujur dikit atau berani dikit? Tenang, nggak ada yang disuruh manjat genteng."
               icon={<Zap className="w-5 h-5 md:w-6 md:h-6" />}
               href="/main/truth-or-dare"
-              color="#a78bfa"
+              color="#9b8cff"
               duration="10-20 menit"
             />
             
@@ -169,7 +207,7 @@ export default function Home() {
               description="Dua pilihan sama-sama ngeselin. Hidup memang suka bercanda."
               icon={<Scale className="w-5 h-5 md:w-6 md:h-6" />}
               href="/main/would-you-rather"
-              color="#60a5fa"
+              color="#5dd9d0"
               duration="10-15 menit"
             />
             
@@ -178,7 +216,7 @@ export default function Home() {
               description="Siapa yang paling mungkin bikin masalah, terus pura-pura nggak tahu?"
               icon={<Users className="w-5 h-5 md:w-6 md:h-6" />}
               href="/main/si-paling"
-              color="#fb923c"
+              color="#ff7a59"
               duration="15-30 menit"
             />
           </div>
@@ -186,32 +224,36 @@ export default function Home() {
       </section>
 
       {/* How to Play Section */}
-      <section className="px-4 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto">
+      <section className="border-t-2 border-[#172033]/10 bg-[#e8e4ff] px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-5xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 md:mb-12"
+            className="mb-10 text-center md:mb-14"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 md:mb-4">
-              Cara Main
+            <div className="mb-4 inline-flex rounded-full border-2 border-[#172033] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.16em] shadow-[3px_3px_0_#172033]">
+              gampang banget
+            </div>
+            <h2 className="mb-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl md:text-6xl">
+              Dari awkward jadi seru<span className="text-[#ff7a59]">.</span>
             </h2>
+            <p className="text-sm text-[#172033]/65 md:text-base">Tiga langkah kecil untuk bikin momen besar.</p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-center"
+              className="rounded-[1.75rem] border-2 border-[#172033] bg-[#ffd166] p-6 text-center shadow-[5px_5px_0_#172033] md:p-8"
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#c1ff72] rounded-full flex items-center justify-center text-xl md:text-2xl font-black border-2 border-black mx-auto mb-4">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[#172033] bg-white text-xl font-black shadow-[3px_3px_0_#172033] md:h-16 md:w-16 md:text-2xl">
                 1
               </div>
-              <h3 className="font-bold text-base md:text-lg mb-2">Pilih Permainan</h3>
-              <p className="text-sm md:text-base text-black/70 px-4">
+              <h3 className="mb-2 text-base font-black md:text-lg">Pilih Permainan</h3>
+              <p className="px-1 text-sm leading-relaxed text-[#172033]/70 md:text-base">
                 Pilih salah satu dari empat permainan yang tersedia
               </p>
             </motion.div>
@@ -221,13 +263,13 @@ export default function Home() {
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-center"
+              className="rounded-[1.75rem] border-2 border-[#172033] bg-[#9b8cff] p-6 text-center text-white shadow-[5px_5px_0_#172033] md:p-8"
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#a78bfa] rounded-full flex items-center justify-center text-xl md:text-2xl font-black border-2 border-black mx-auto mb-4">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[#172033] bg-white text-xl font-black text-[#172033] shadow-[3px_3px_0_#172033] md:h-16 md:w-16 md:text-2xl">
                 2
               </div>
-              <h3 className="font-bold text-base md:text-lg mb-2">Gas Langsung Main</h3>
-              <p className="text-sm md:text-base text-black/70 px-4">
+              <h3 className="mb-2 text-base font-black md:text-lg">Gas Langsung Main</h3>
+              <p className="px-1 text-sm leading-relaxed text-white/80 md:text-base">
                 Nggak perlu daftar atau login, langsung main aja
               </p>
             </motion.div>
@@ -237,13 +279,13 @@ export default function Home() {
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-center"
+              className="rounded-[1.75rem] border-2 border-[#172033] bg-[#ff7a59] p-6 text-center shadow-[5px_5px_0_#172033] md:p-8"
             >
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-[#fb923c] rounded-full flex items-center justify-center text-xl md:text-2xl font-black border-2 border-black mx-auto mb-4">
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-[#172033] bg-white text-xl font-black shadow-[3px_3px_0_#172033] md:h-16 md:w-16 md:text-2xl">
                 3
               </div>
-              <h3 className="font-bold text-base md:text-lg mb-2">Nikmati Momennya</h3>
-              <p className="text-sm md:text-base text-black/70 px-4">
+              <h3 className="mb-2 text-base font-black md:text-lg">Nikmati Momennya</h3>
+              <p className="px-1 text-sm leading-relaxed text-[#172033]/75 md:text-base">
                 Main sampai puas, ketawa bareng, bikin cerita baru
               </p>
             </motion.div>
