@@ -20,6 +20,43 @@ export type WouldYouRatherCategory =
 
 export type DifficultyLevel = 'santai' | 'seru' | 'berani';
 
+export type ChaosLevel = 'playful' | 'social' | 'unhinged' | 'maximum';
+
+export type TruthOrDareCategory =
+  | 'confession'
+  | 'hot-seat'
+  | 'hypothetical'
+  | 'social-dynamics'
+  | 'embarrassing'
+  | 'unpopular-opinion'
+  | 'deep-talk'
+  | 'act-it-out'
+  | 'creative'
+  | 'social-performance'
+  | 'group-interaction'
+  | 'improv'
+  | 'reverse-challenge'
+  | 'absurd-scenario';
+
+export type ChaosModifierId =
+  | 'no-laughing'
+  | 'speedrun'
+  | 'dramatic'
+  | 'npc'
+  | 'plot-twist'
+  | 'duet'
+  | 'one-take'
+  | 'wrong-answers'
+  | 'genre-swap';
+
+export type RandomEventId =
+  | 'plot-twist'
+  | 'double-trouble'
+  | 'tag-team'
+  | 'audience-choice'
+  | 'sudden-chaos'
+  | 'role-reversal';
+
 export type ChallengeType = 'truth' | 'dare' | 'random';
 
 export interface Question {
@@ -34,7 +71,23 @@ export interface TruthOrDareItem {
   id: string;
   text: string;
   type: 'truth' | 'dare';
-  level: DifficultyLevel;
+  level: ChaosLevel;
+  category: TruthOrDareCategory;
+  lighterText?: string;
+}
+
+export interface ChaosModifier {
+  id: ChaosModifierId;
+  label: string;
+  text: string;
+  types?: Array<'truth' | 'dare'>;
+}
+
+export interface RandomEvent {
+  id: RandomEventId;
+  label: string;
+  text: string;
+  types?: Array<'truth' | 'dare'>;
 }
 
 export interface WouldYouRatherQuestion {
